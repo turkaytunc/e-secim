@@ -7,7 +7,7 @@ function App(): JSX.Element {
   return (
     <div className="app">
       <Header />
-      <main>Main Content</main>
+      <main style={{ textAlign: 'center' }}>Ana İçerik</main>
       <Footer />
     </div>
   );

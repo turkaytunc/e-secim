@@ -17,9 +17,8 @@ const Header = (): JSX.Element => {
         <li>
           <input className="nav-search-box" type="search" placeholder="Ara" />
         </li>
-        <li>link1</li>
-        <li>link2</li>
       </ul>
+      <button className="signin-button">Giriş Yap</button>
     </nav>
   );
 };
