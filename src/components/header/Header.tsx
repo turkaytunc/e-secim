@@ -1,6 +1,7 @@
 import React from 'react';
 import './header.scss';
 import vote from '../../static-files/vote.jpg';
+import { Link } from 'react-router-dom';
 
 const Header = (): JSX.Element => {
   return (
@@ -18,7 +19,12 @@ const Header = (): JSX.Element => {
           <input className="nav-search-box" type="search" placeholder="Ara" />
         </li>
       </ul>
-      <button className="signin-button">Giriş Yap</button>
+      <Link to="/">
+        <button className="nav-button homepage-button">Anasayfa</button>
+      </Link>
+      <Link to="login">
+        <button className="nav-button login-button">Giriş Yap</button>
+      </Link>
     </nav>
   );
 };

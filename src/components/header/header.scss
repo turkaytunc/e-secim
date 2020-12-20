@@ -1,8 +1,6 @@
 .header-container {
-  min-height: 5em;
   background-color: #3e91c9;
   color: #222;
-
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   padding: 1em;
@@ -14,13 +12,13 @@
 }
 
 .project-title {
-  grid-column: span 6;
-  text-align: center;
+  grid-column: span 5;
+  text-align: right;
   font-size: 2em;
 }
 
 .nav-link-container {
-  grid-column: 9/12;
+  grid-column: 8/11;
   list-style: none;
   display: flex;
   align-items: center;
@@ -46,8 +44,7 @@
   }
 }
 
-.signin-button {
-  grid-column: 12/13;
+.nav-button {
   height: 2em;
   border-radius: 5px;
   border: none;
@@ -60,4 +57,11 @@
     background-color: #444;
     color: white;
   }
+}
+.homepage-button {
+  grid-column: 11/12;
+}
+
+.login-button {
+  grid-column: 12/13;
 }
