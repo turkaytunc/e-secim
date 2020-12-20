@@ -1,13 +1,14 @@
 .footer-container {
   min-height: 5em;
-  background-color: #333;
+  background-color: #444;
+  color: aliceblue;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 
 .copyright-container {
