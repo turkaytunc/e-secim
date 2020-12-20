@@ -1,4 +1,42 @@
 .header-container {
   min-height: 10em;
   background-color: #333;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 1em;
+}
+
+.corp-logo-container {
+  grid-column: 1/3;
+}
+
+.project-title {
+  grid-column: span 7;
+  text-align: center;
+}
+
+.nav-link-container {
+  grid-column: 10/13;
+  list-style: none;
+  display: flex;
+  li {
+    margin-left: 0.5em;
+  }
+}
+
+.nav-search-box {
+  padding-left: 0.3em;
+  height: 2em;
+  width: 20em;
+  border: none;
+  outline: none;
+
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+    border: 2px solid rgb(147, 79, 202);
+
+    border-radius: 5px;
+  }
 }
