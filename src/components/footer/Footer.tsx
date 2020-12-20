@@ -4,10 +4,10 @@ import './footer.scss';
 const Footer = () => {
   return (
     <footer className="footer-container">
-      <ul>
+      <ul className="faq-container">
         <li>SSS</li>
       </ul>
-      <ul>
+      <ul className="copyright-container">
         <li>&copy; 2020 Turkay Tunc</li>
       </ul>
     </footer>
