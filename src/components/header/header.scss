@@ -1,6 +1,7 @@
 .header-container {
   min-height: 5em;
-  background-color: rgb(116, 175, 202);
+  background-color: #3e91c9;
+  color: black;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -38,7 +39,7 @@
   border-radius: 5px;
   &:focus {
     outline: none;
-    border: 2px solid rgb(102, 139, 156);
+    border: 2px solid #62b1e6;
 
     border-radius: 5px;
   }
