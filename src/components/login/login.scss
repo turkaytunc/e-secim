@@ -4,6 +4,7 @@
   width: min-content;
   padding: 2em;
   margin: 15% auto;
+  font-size: 1.3em;
 }
 
 .login-page-container {
@@ -22,6 +23,8 @@
   flex-direction: column;
   input {
     margin-bottom: 0.5em;
+    height: 2em;
+    width: 15em;
   }
 }
 
@@ -34,5 +37,6 @@
   align-self: flex-end;
   button {
     padding: 0.2em 1em;
+    width: 15em;
   }
 }
