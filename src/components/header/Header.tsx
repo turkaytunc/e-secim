@@ -16,7 +16,7 @@ const Header = (): JSX.Element => {
       <div className="project-title">Elektronik Seçim Uygulamasına Hoş Geldiniz.</div>
       <ul className="nav-link-container">
         <li>
-          <input className="nav-search-box" type="search" placeholder="Ara" />
+          <input className="nav-search-box" type="search" placeholder="Size nasıl yardımcı olabilirim?" />
         </li>
       </ul>
       <Link to="/">
