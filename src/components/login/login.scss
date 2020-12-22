@@ -1,0 +1,29 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  padding: 2em;
+  margin: 15% auto;
+}
+
+.login-page-container {
+  display: flex;
+}
+
+.login-label-container,
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-label {
+  width: 100%;
+  margin-right: 4em;
+}
+
+.submit-button-container {
+  align-self: flex-end;
+  button {
+    padding: 0.2em 1em;
+  }
+}
