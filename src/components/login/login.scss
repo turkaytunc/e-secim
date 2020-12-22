@@ -10,10 +10,19 @@
   display: flex;
 }
 
-.login-label-container,
+.login-label-container {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 0.5em;
+  }
+}
 .login-input-container {
   display: flex;
   flex-direction: column;
+  input {
+    margin-bottom: 0.5em;
+  }
 }
 
 .login-label {
