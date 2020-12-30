@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './login.scss';
+import sha256 from 'crypto-js/sha256';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
@@ -9,6 +10,18 @@ const Login = () => {
     event.preventDefault();
 
     console.log(userId, userPassword);
+    fetch(`https://secim.webde.biz.tr/api/developerhelper/secmenekle`, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+        tcNo: userId,
+        sifre: userPassword,
+      }),
+    }).then((res) => console.log(res));
     setUserId('');
     setUserPassword('');
   };
