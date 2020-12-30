@@ -1,16 +1,16 @@
 .header-container {
   background-color: #3e91c9;
   color: #222;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   padding: 0.2em;
   align-items: center;
 }
 
-.corp-logo-container {
-  grid-row: 1/2;
-
+.corp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img {
     border-radius: 50%;
     height: 100px;
@@ -38,10 +38,10 @@
 .nav-search-box {
   padding-left: 0.3em;
   height: 2em;
-  width: 20em;
+  width: 100%;
   border: none;
   outline: none;
-
+  align-self: flex-start;
   border-radius: 5px;
   &:focus {
     outline: none;
