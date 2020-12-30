@@ -142,3 +142,46 @@
     }
   }
 }
+
+@media screen and (min-width: 1300px) {
+  .header-container {
+    flex-direction: row;
+  }
+
+  .nav-search-box {
+    font-size: 1em;
+    width: 40%;
+  }
+
+  .nav-button {
+    font-size: 1em;
+    width: 100%;
+  }
+  .project-title {
+    font-size: 1.5em;
+  }
+
+  .button-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin: 0.2em;
+    a {
+      margin: 0.3em;
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .nav-search-box {
+    font-size: 1em;
+    width: 30%;
+  }
+  .button-container {
+    width: 30%;
+    margin: 0.2em;
+    a {
+      margin: 0.3em;
+    }
+  }
+}
