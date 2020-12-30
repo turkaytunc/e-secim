@@ -12,17 +12,19 @@ const Header = (): JSX.Element => {
       </div>
       <input className="nav-search-box" type="search" placeholder="Size nasıl yardımcı olabilirim?" />
 
-      <Link to="/e-secim/">
-        <button className="nav-button">Anasayfa</button>
-      </Link>
+      <div className="button-container">
+        <Link to="/e-secim/">
+          <button className="nav-button">Anasayfa</button>
+        </Link>
 
-      <Link to="/e-secim/signup">
-        <button className="nav-button">Üye Ol</button>
-      </Link>
+        <Link to="/e-secim/signup">
+          <button className="nav-button">Üye Ol</button>
+        </Link>
 
-      <Link to="/e-secim/login">
-        <button className="nav-button">Giriş Yap</button>
-      </Link>
+        <Link to="/e-secim/login">
+          <button className="nav-button">Giriş Yap</button>
+        </Link>
+      </div>
     </nav>
   );
 };
