@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Homepage from './components/homepage/Homepage';
 import Login from './components/login/Login';
+import Signup from './components/signup/Signup';
 
 function App(): JSX.Element {
   return (
@@ -13,8 +14,9 @@ function App(): JSX.Element {
         <Header />
         <main className="main-container">
           <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/login" component={Login} />
+            <Route exact path="/e-secim/" component={Homepage} />
+            <Route path="/e-secim/login" component={Login} />
+            <Route path="/e-secim/signup" component={Signup} />
           </Switch>
         </main>
         <Footer />
