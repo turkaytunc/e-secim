@@ -2,23 +2,29 @@
   background-color: #3e91c9;
   color: #222;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding: 1em;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.2em;
   align-items: center;
 }
 
 .corp-logo-container {
-  grid-column: 1/2;
+  grid-row: 1/2;
+
+  img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    box-shadow: 1px 1px 3px #333;
+  }
 }
 
 .project-title {
-  grid-column: 2/6;
-  text-align: right;
+  text-align: center;
   font-size: 1.3em;
 }
 
 .nav-link-container {
-  grid-column: 6/13;
   list-style: none;
   display: flex;
   align-items: center;
