@@ -10,16 +10,15 @@ const Signup = () => {
 
     fetch(`https://secim.webde.biz.tr/api/developerhelper/secmenekle`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         tcNo: userId,
         sifre: userPassword,
       }),
-    }).then((res) => console.log(res));
+    });
     setUserId('');
     setUserPassword('');
   };
