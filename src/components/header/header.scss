@@ -5,6 +5,9 @@
   flex-direction: column;
   padding: 0.2em;
   align-items: center;
+  a {
+    width: 100%;
+  }
 }
 
 .corp-container {
@@ -22,17 +25,6 @@
 .project-title {
   text-align: center;
   font-size: 1.3em;
-}
-
-.nav-link-container {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-self: end;
-  li {
-    margin-left: 0.5em;
-    width: max-content;
-  }
 }
 
 .nav-search-box {
@@ -65,11 +57,4 @@
     background-color: #444;
     color: white;
   }
-}
-.homepage-button {
-  grid-column: 11/12;
-}
-
-.login-button {
-  grid-column: 12/13;
 }
