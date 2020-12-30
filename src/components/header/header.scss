@@ -5,7 +5,8 @@
   flex-direction: column;
   align-items: center;
   a {
-    width: 100%;
+    width: 95%;
+    margin-bottom: 0.3em;
   }
 }
 
@@ -13,27 +14,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1em;
   img {
+    margin: 0.5em;
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     box-shadow: 1px 1px 3px #333;
   }
 }
 
 .project-title {
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.1em;
+  padding: 0 0.5em;
 }
 
 .nav-search-box {
-  padding-left: 0.3em;
+  padding-left: 0.5em;
+  margin: 1em auto;
   height: 2em;
-  width: 100%;
+  width: 95%;
   border: none;
   outline: none;
-  align-self: flex-start;
-  border-radius: 5px;
+  align-self: center;
+  border-radius: 2px;
   &:focus {
     outline: none;
     border: 2px solid #62b1e6;
@@ -44,10 +49,10 @@
 
 .nav-button {
   height: 2em;
-  border-radius: 5px;
+  border-radius: 2px;
+
   border: none;
   width: 100%;
-  padding: 0.2em 1em;
   background-color: aliceblue;
   &:focus {
     outline: none;
