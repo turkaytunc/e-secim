@@ -1,26 +1,21 @@
 .footer-container {
-  min-height: 5em;
   background-color: #3e91c9;
   color: black;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  min-height: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 1em 0;
 }
 
 .copyright-container {
-  grid-column: 11/13;
-  display: flex;
-  flex-direction: column-reverse;
-
-  list-style: none;
+  font-size: 0.8em;
+  margin-top: 1em;
 }
 
 .faq-container {
-  grid-column: 2/5;
-
   list-style: none;
 }
