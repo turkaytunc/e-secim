@@ -12,19 +12,20 @@
 }
 
 .project-title {
-  grid-column: 2/8;
+  grid-column: 2/6;
   text-align: right;
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 
 .nav-link-container {
-  grid-column: 8/11;
+  grid-column: 6/13;
   list-style: none;
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-self: end;
   li {
     margin-left: 0.5em;
+    width: max-content;
   }
 }
 
@@ -48,7 +49,8 @@
   height: 2em;
   border-radius: 5px;
   border: none;
-  width: 80%;
+  width: 100%;
+  padding: 0.2em 1em;
   background-color: aliceblue;
   &:focus {
     outline: none;

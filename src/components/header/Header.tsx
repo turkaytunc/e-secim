@@ -18,13 +18,22 @@ const Header = (): JSX.Element => {
         <li>
           <input className="nav-search-box" type="search" placeholder="Size nasıl yardımcı olabilirim?" />
         </li>
+        <li>
+          <Link to="/e-secim/">
+            <button className="nav-button homepage-button">Anasayfa</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/e-secim/signup">
+            <button className="nav-button">Üye Ol</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/e-secim/login">
+            <button className="nav-button login-button">Giriş Yap</button>
+          </Link>
+        </li>
       </ul>
-      <Link to="/">
-        <button className="nav-button homepage-button">Anasayfa</button>
-      </Link>
-      <Link to="login">
-        <button className="nav-button login-button">Giriş Yap</button>
-      </Link>
     </nav>
   );
 };
