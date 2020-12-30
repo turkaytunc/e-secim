@@ -42,3 +42,15 @@
     width: 15em;
   }
 }
+
+@media screen and (min-width: 500px) {
+  .login-form-container {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .login-form-container {
+    margin-top: 20%;
+  }
+}

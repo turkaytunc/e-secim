@@ -41,3 +41,15 @@
     width: 15em;
   }
 }
+
+@media screen and (min-width: 500px) {
+  .signup-form-container {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .signup-form-container {
+    margin-top: 20%;
+  }
+}
