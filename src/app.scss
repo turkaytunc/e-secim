@@ -10,7 +10,6 @@
   display: flex;
   width: 100%;
   margin-top: 50%;
-  transform: translateY(-50%);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -19,24 +18,20 @@
 @media screen and (min-width: 540px) {
   .main-container {
     margin-top: 40%;
-    transform: translateY(-60%);
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 750px) {
   .main-container {
     margin-top: 30%;
-    transform: translateY(-70%);
   }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   .main-container {
     margin-top: 20%;
-    transform: translateY(-80%);
   }
 }
 @media screen and (min-width: 1600px) {
   .main-container {
-    margin-top: 0%;
-    transform: translateY(-20%);
+    margin-top: 10%;
   }
 }
