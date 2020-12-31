@@ -1,8 +1,46 @@
+.login-form-container {
+  width: 50%;
+}
+
 .login-input-container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
   label {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.5em;
+
+    input {
+      margin-top: 0.2em;
+      padding-left: 0.4em;
+      height: 2em;
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      &:focus {
+        outline: none;
+        border: 2px solid #62b1e6;
+
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.login-submit-button {
+  height: 2em;
+  border-radius: 2px;
+
+  border: none;
+  width: 100%;
+  background-color: #fff;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #444;
+    color: white;
   }
 }
