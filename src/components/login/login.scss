@@ -1,56 +1,8 @@
-.login-form-container {
-  display: flex;
-  flex-direction: column;
-  width: min-content;
-  margin-top: 50%;
-  transform: translateY(-50%);
-
-  font-size: 1em;
-}
-
-.login-page-container {
-  display: flex;
-}
-
-.login-label-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  label {
-    margin-bottom: 0.5em;
-  }
-}
 .login-input-container {
   display: flex;
   flex-direction: column;
-  input {
-    margin-bottom: 0.5em;
-    height: 2em;
-    width: 15em;
-  }
-}
-
-.login-label {
-  width: 100%;
-  margin-right: 4em;
-}
-
-.submit-button-container {
-  align-self: flex-end;
-  button {
-    padding: 0.2em 1em;
-    width: 15em;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .login-form-container {
-    margin-top: 30%;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  .login-form-container {
-    margin-top: 20%;
+  label {
+    display: flex;
+    flex-direction: column;
   }
 }

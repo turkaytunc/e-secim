@@ -32,16 +32,9 @@ const Login = () => {
           onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
           className="login-form-container"
         >
-          <div className="login-page-container">
-            <div className="login-label-container">
-              <label className="login-label" htmlFor="tc-kimlik-no">
-                TC Kimlik No
-              </label>
-              <label className="login-label" htmlFor="sifre">
-                Şifre
-              </label>
-            </div>
-            <div className="login-input-container">
+          <div className="login-input-container">
+            <label className="login-tc-label" htmlFor="tc-kimlik-no">
+              TC Kimlik No
               <input
                 type="text"
                 name="tc-kimlik-no"
@@ -49,6 +42,9 @@ const Login = () => {
                 value={userId}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserId(event.target.value)}
               />
+            </label>
+            <label className="login-password-label" htmlFor="sifre">
+              Şifre
               <input
                 type="password"
                 name="sifre"
@@ -56,7 +52,7 @@ const Login = () => {
                 value={userPassword}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserPassword(event.target.value)}
               />
-            </div>
+            </label>
           </div>
           <div className="submit-button-container">
             <button type="submit">Giriş</button>
