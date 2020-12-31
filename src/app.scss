@@ -15,3 +15,28 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (min-width: 540px) {
+  .main-container {
+    margin-top: 40%;
+    transform: translateY(-60%);
+  }
+}
+@media screen and (min-width: 900px) {
+  .main-container {
+    margin-top: 30%;
+    transform: translateY(-70%);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-container {
+    margin-top: 20%;
+    transform: translateY(-80%);
+  }
+}
+@media screen and (min-width: 1600px) {
+  .main-container {
+    margin-top: 0%;
+    transform: translateY(-20%);
+  }
+}
