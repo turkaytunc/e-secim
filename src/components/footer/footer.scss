@@ -11,11 +11,21 @@
   width: 100%;
 }
 
+.faq-container {
+  list-style: none;
+}
 .copyright-container {
   font-size: 0.8em;
   margin-top: 1em;
 }
 
-.faq-container {
-  list-style: none;
+@media screen and (min-width: 700px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .copyright-container {
+    font-size: 1em;
+    margin: 1em;
+  }
 }
