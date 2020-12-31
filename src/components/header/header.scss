@@ -10,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5em;
   width: 100%;
   img {
     display: none;
@@ -18,7 +17,7 @@
 }
 
 .nav-search-box {
-  padding-left: 0.5em;
+  padding-left: 1em;
   margin: 1em auto;
   height: 2em;
   width: 95%;
@@ -64,6 +63,7 @@
 
 @media screen and (min-width: 500px) {
   .corp-container {
+    margin-bottom: 1em;
     img {
       display: block;
       width: 80px;
@@ -87,8 +87,8 @@
 
 @media screen and (min-width: 700px) {
   .corp-container {
-    margin-top: 1em;
     img {
+      margin-left: 2em;
       width: 90px;
       height: 90px;
     }
@@ -106,7 +106,7 @@
   }
   .nav-button {
     font-size: 1em;
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -114,9 +114,14 @@
   .header-container {
     flex-direction: row;
   }
+  .corp-container {
+    margin-bottom: 0;
+  }
   .nav-search-box {
     font-size: 0.8em;
     width: 60%;
+    justify-self: center;
+    align-self: center;
   }
 
   .nav-button {
@@ -137,8 +142,6 @@
 
 @media screen and (min-width: 1300px) {
   .nav-search-box {
-    display: inline-block;
-    font-size: 1em;
     width: 100%;
     margin-left: 50%;
   }
