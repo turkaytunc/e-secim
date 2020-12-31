@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './login.scss';
 import sha256 from 'crypto-js/sha256';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [isUserValid, setIsUserValid] = useState(false);
+  const [validationStatus, setValidationStatus] = useState(0);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,13 +19,28 @@ const Login = () => {
       },
       body: JSON.stringify({ hashedUserInfo: hashedUserInfo }),
     })
-      .then((res) => (res.status === 200 ? setIsUserValid(true) : setIsUserValid(false)))
+      .then((res) => setValidationStatus(res.status))
       .catch((err) => console.log(err));
+
+    setUserId('');
+    setUserPassword('');
   };
+
+  useEffect(() => {
+    let time: NodeJS.Timeout;
+    if (validationStatus === 401) {
+      time = setTimeout(() => {
+        setValidationStatus(0);
+      }, 2000);
+    }
+    return () => {
+      clearTimeout(time);
+    };
+  }, [validationStatus]);
 
   return (
     <>
-      {isUserValid ? (
+      {validationStatus === 200 ? (
         'user is valid'
       ) : (
         <form
@@ -54,6 +69,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <div style={{ color: 'red' }}>{validationStatus === 401 ? 'User not exist' : null}</div>
           <button className="login-submit-button" type="submit">
             Giriş
           </button>
