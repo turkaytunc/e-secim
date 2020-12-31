@@ -141,8 +141,12 @@
 }
 
 @media screen and (min-width: 1300px) {
+  .corp-container {
+    justify-content: space-between;
+  }
+
   .nav-search-box {
-    width: 100%;
+    width: 50%;
     margin-left: 50%;
   }
   .button-container {

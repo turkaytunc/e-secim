@@ -8,7 +8,7 @@ const Footer = () => {
         <li>SSS</li>
       </ul>
 
-      <div className="copyright-container">&copy; 2020 Turkay Tunc - Atakan Erturk - Atakan Karacali</div>
+      <div className="copyright-container">&copy; 2020 Türkay TUNÇ - Atakan ERTÜRK - Atakan KARAÇALI</div>
     </footer>
   );
 };
