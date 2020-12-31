@@ -10,20 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+  width: 100%;
   img {
-    margin: 0.5em;
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    box-shadow: 1px 1px 3px #333;
+    display: none;
   }
-}
-
-.project-title {
-  text-align: center;
-  font-size: 1.1em;
-  padding: 0 0.5em;
 }
 
 .nav-search-box {
@@ -74,20 +65,23 @@
 @media screen and (min-width: 500px) {
   .corp-container {
     img {
+      display: block;
       width: 80px;
       height: 80px;
+      box-shadow: 1px 1px 3px #333;
+      align-self: center;
+      border-radius: 50%;
+      margin: 0.2em;
     }
-  }
-  .project-title {
-    font-size: 1.5em;
   }
 
   .nav-search-box {
-    font-size: 1.2em;
+    font-size: 0.9em;
+    width: 80%;
   }
 
   .nav-button {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -99,37 +93,6 @@
       height: 90px;
     }
   }
-  .project-title {
-    font-size: 1.8em;
-  }
-
-  .nav-search-box {
-    font-size: 1.3em;
-  }
-
-  .nav-button {
-    font-size: 1.3em;
-  }
-}
-
-@media screen and (min-width: 950px) {
-  .corp-container {
-    margin-top: 1em;
-    img {
-      width: 100px;
-      height: 100px;
-    }
-  }
-
-  .nav-search-box {
-    font-size: 1em;
-  }
-
-  .nav-button {
-    font-size: 1em;
-    width: 100%;
-  }
-
   .button-container {
     width: 95%;
     display: flex;
@@ -141,24 +104,24 @@
       margin: 1em;
     }
   }
+  .nav-button {
+    font-size: 1em;
+    width: 100%;
+  }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 950px) {
   .header-container {
     flex-direction: row;
   }
-
   .nav-search-box {
     font-size: 0.8em;
-    width: 40%;
+    width: 60%;
   }
 
   .nav-button {
     font-size: 0.8em;
     width: 100%;
-  }
-  .project-title {
-    font-size: 1.5em;
   }
 
   .button-container {
@@ -172,10 +135,12 @@
   }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1300px) {
   .nav-search-box {
+    display: inline-block;
     font-size: 1em;
-    width: 30%;
+    width: 100%;
+    margin-left: 50%;
   }
   .button-container {
     width: 30%;

@@ -8,10 +8,8 @@ const Header = (): JSX.Element => {
     <nav className="header-container">
       <div className="corp-container">
         <img src={vote} alt="corp-logo" />
-        <div className="project-title">Elektronik Seçim Uygulamasına Hoş Geldiniz.</div>
+        <input className="nav-search-box" type="search" placeholder="Size nasıl yardımcı olabilirim?" />
       </div>
-      <input className="nav-search-box" type="search" placeholder="Size nasıl yardımcı olabilirim?" />
-
       <div className="button-container">
         <Link to="/e-secim/">
           <button className="nav-button">Anasayfa</button>
