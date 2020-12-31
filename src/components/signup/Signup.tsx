@@ -23,17 +23,10 @@ const Signup = () => {
     setUserPassword('');
   };
   return (
-    <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
-      <div className="signup-page-container">
-        <div className="signup-label-container">
-          <label className="signup-label" htmlFor="tc-kimlik-no">
-            TC Kimlik No
-          </label>
-          <label className="signup-label" htmlFor="sifre">
-            Şifre
-          </label>
-        </div>
-        <div className="signup-input-container">
+    <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="login-form-container">
+      <div className="login-input-container">
+        <label className="login-tc-label" htmlFor="tc-kimlik-no">
+          TC Kimlik No
           <input
             type="text"
             name="tc-kimlik-no"
@@ -41,6 +34,9 @@ const Signup = () => {
             value={userId}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserId(event.target.value)}
           />
+        </label>
+        <label className="login-password-label" htmlFor="sifre">
+          Şifre
           <input
             type="password"
             name="sifre"
@@ -48,11 +44,11 @@ const Signup = () => {
             value={userPassword}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserPassword(event.target.value)}
           />
-        </div>
+        </label>
       </div>
-      <div className="submit-button-container">
-        <button type="submit">Üye Ol</button>
-      </div>
+      <button className="login-submit-button" type="submit">
+        Üye Ol
+      </button>
     </form>
   );
 };
