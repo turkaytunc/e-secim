@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './login.scss';
 import sha256 from 'crypto-js/sha256';
+import { Store } from '../../store/Store';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [validationStatus, setValidationStatus] = useState(0);
+  const { state, dispatch } = useContext(Store);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,6 +24,9 @@ const Login = () => {
       .then((res) => setValidationStatus(res.status))
       .catch((err) => console.log(err));
 
+    dispatch({ type: 'ADD_TC', payload: userId });
+    dispatch({ type: 'ADD_TC_HASH', payload: hashedUserInfo });
+
     setUserId('');
     setUserPassword('');
   };
@@ -33,10 +38,13 @@ const Login = () => {
         setValidationStatus(0);
       }, 2000);
     }
+    if (validationStatus === 200) {
+      console.log(state.user);
+    }
     return () => {
       clearTimeout(time);
     };
-  }, [validationStatus]);
+  }, [validationStatus, state]);
 
   return (
     <>
