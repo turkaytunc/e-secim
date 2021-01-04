@@ -56,6 +56,7 @@ const Login = () => {
             <label className="login-tc-label" htmlFor="tc-kimlik-no">
               TC Kimlik No
               <input
+                required
                 type="text"
                 name="tc-kimlik-no"
                 id="tc-kimlik-no"
@@ -66,6 +67,7 @@ const Login = () => {
             <label className="login-password-label" htmlFor="sifre">
               Şifre
               <input
+                required
                 type="password"
                 name="sifre"
                 id="sifre"

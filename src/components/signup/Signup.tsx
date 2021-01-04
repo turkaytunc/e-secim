@@ -21,7 +21,11 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
+    <form
+      onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
+      className="signup-form-container"
+      noValidate
+    >
       <div className="signup-title-container">
         <p>Üye Ol</p>
       </div>
@@ -29,6 +33,7 @@ const Signup = () => {
         <label className="signup-tc-label" htmlFor="tc-kimlik-no">
           TC Kimlik No
           <input
+            required
             type="text"
             name="tc-kimlik-no"
             id="tc-kimlik-no"
@@ -39,6 +44,7 @@ const Signup = () => {
         <label className="signup-password-label" htmlFor="sifre">
           Şifre
           <input
+            required
             type="password"
             name="sifre"
             id="sifre"
