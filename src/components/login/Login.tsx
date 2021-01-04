@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './login.scss';
 import sha256 from 'crypto-js/sha256';
 import { Store } from '../../store/Store';
+import { validateUser } from '../../util/validateUser';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
@@ -12,21 +13,14 @@ const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    let hashedUserInfo = sha256(userId + userPassword).toString();
+    const hashedUserInfo = sha256(userId + userPassword).toString();
 
-    fetch('https://secim.webde.biz.tr/api/secim/isuservalid', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-      },
-      body: JSON.stringify({ hashedUserInfo: hashedUserInfo }),
-    })
+    validateUser(hashedUserInfo)
       .then((res) => setValidationStatus(res.status))
       .catch((err) => console.log(err));
 
     dispatch({ type: 'ADD_TC', payload: userId });
     dispatch({ type: 'ADD_TC_HASH', payload: hashedUserInfo });
-
     setUserId('');
     setUserPassword('');
   };
