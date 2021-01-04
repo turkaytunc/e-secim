@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { userSignUp } from '../../util/userSignUp';
 import './signup.scss';
@@ -6,7 +6,6 @@ import './signup.scss';
 const Signup = () => {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [isSignedUp, setIsSignedUp] = useState(false);
   const history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -14,21 +13,12 @@ const Signup = () => {
 
     userSignUp(userId, userPassword)
       .then(() => {
-        setIsSignedUp(true);
-        setUserId('');
-        setUserPassword('');
+        history.push('/e-secim/login');
       })
       .catch((err) => {
-        setIsSignedUp(false);
         console.error(err);
       });
   };
-
-  useEffect(() => {
-    if (isSignedUp) {
-      history.push('/e-secim/login');
-    }
-  });
 
   return (
     <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
