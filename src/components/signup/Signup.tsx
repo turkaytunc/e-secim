@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { userSignUp } from '../../util/userSignUp';
 import './signup.scss';
 
 const Signup = () => {
@@ -11,17 +12,7 @@ const Signup = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    fetch(`https://secim.webde.biz.tr/api/developerhelper/secmenekle`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        tcNo: userId,
-        sifre: userPassword,
-      }),
-    })
+    userSignUp(userId, userPassword)
       .then(() => {
         setIsSignedUp(true);
         setUserId('');
