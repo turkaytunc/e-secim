@@ -55,6 +55,9 @@ const Login = () => {
           onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
           className="login-form-container"
         >
+          <div className="signup-title-container">
+            <p>Giriş Yap</p>
+          </div>
           <div className="login-input-container">
             <label className="login-tc-label" htmlFor="tc-kimlik-no">
               TC Kimlik No
@@ -79,7 +82,7 @@ const Login = () => {
           </div>
           <div style={{ color: 'red' }}>{validationStatus === 401 ? 'User not exist' : null}</div>
           <button className="login-submit-button" type="submit">
-            Giriş
+            Giriş Yap
           </button>
         </form>
       )}

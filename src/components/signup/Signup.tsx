@@ -41,6 +41,9 @@ const Signup = () => {
 
   return (
     <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
+      <div className="signup-title-container">
+        <p>Üye Ol</p>
+      </div>
       <div className="signup-input-container">
         <label className="signup-tc-label" htmlFor="tc-kimlik-no">
           TC Kimlik No

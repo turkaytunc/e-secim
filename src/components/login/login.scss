@@ -2,6 +2,14 @@
   width: 50%;
 }
 
+.login-title-container {
+  margin-bottom: 0.5em;
+  text-align: center;
+  font-size: 2em;
+  color: #444;
+  border-bottom: 1px solid #d4e5f0;
+}
+
 .login-input-container {
   display: flex;
   flex-direction: column;
