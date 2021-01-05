@@ -6,26 +6,24 @@ import './signup.scss';
 const Signup = () => {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
+
   const history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    userSignUp(userId, userPassword)
-      .then(() => {
-        history.push('/e-secim/login');
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    if (userId === '')
+      userSignUp(userId, userPassword)
+        .then(() => {
+          history.push('/e-secim/login');
+        })
+        .catch((err) => {
+          console.error(err);
+        });
   };
 
   return (
-    <form
-      onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
-      className="signup-form-container"
-      noValidate
-    >
+    <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
       <div className="signup-title-container">
         <p>Üye Ol</p>
       </div>
