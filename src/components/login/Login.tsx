@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <>
       {validationStatus === 200 ? (
-        'user is valid'
+        'Geçerli kullanıcı!   TODO: aday listesini getir'
       ) : (
         <form
           onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
