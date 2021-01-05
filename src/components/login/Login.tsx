@@ -9,9 +9,18 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState('');
   const [validationStatus, setValidationStatus] = useState(0);
   const { state, dispatch } = useContext(Store);
+  const [inputError, setInputError] = useState('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (userId.length !== 11) {
+      setInputError('Lütfen geçerli bir tc kimlik numarası giriniz!');
+      return;
+    } else if (userPassword.length < 5) {
+      setInputError('Şifre minimum 5 karakter içermelidir!');
+      return;
+    }
 
     const hashedUserInfo = sha256(userId + userPassword).toString();
 
@@ -30,7 +39,7 @@ const Login = () => {
     if (validationStatus === 401) {
       time = setTimeout(() => {
         setValidationStatus(0);
-      }, 2000);
+      }, 3000);
     }
     if (validationStatus === 200) {
       console.log(state.user);
@@ -56,27 +65,28 @@ const Login = () => {
             <label className="login-tc-label" htmlFor="tc-kimlik-no">
               TC Kimlik No
               <input
-                required
                 type="text"
                 name="tc-kimlik-no"
                 id="tc-kimlik-no"
                 value={userId}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserId(event.target.value)}
+                onFocus={() => setInputError('')}
               />
             </label>
             <label className="login-password-label" htmlFor="sifre">
               Şifre
               <input
-                required
                 type="password"
                 name="sifre"
                 id="sifre"
                 value={userPassword}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserPassword(event.target.value)}
+                onFocus={() => setInputError('')}
               />
             </label>
           </div>
-          <div style={{ color: 'red' }}>{validationStatus === 401 ? 'User not exist' : null}</div>
+          {inputError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div> : null}
+          <div style={{ color: 'red' }}>{validationStatus === 401 ? 'Eksik veya hatalı giriş yaptınız!' : null}</div>
           <button className="login-submit-button" type="submit">
             Giriş Yap
           </button>
