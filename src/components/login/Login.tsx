@@ -3,6 +3,7 @@ import './login.scss';
 import sha256 from 'crypto-js/sha256';
 import { Store } from '../../store/Store';
 import { validateUser } from '../../util/validateUser';
+import Vote from '../vote/Vote';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
@@ -52,7 +53,7 @@ const Login = () => {
   return (
     <>
       {validationStatus === 200 ? (
-        'Geçerli kullanıcı!   TODO: aday listesini getir'
+        <Vote />
       ) : (
         <form
           onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
