@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { userSignUp } from '../../util/userSignUp';
 import './signup.scss';
@@ -7,7 +7,7 @@ const Signup = () => {
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [inputError, setInputError] = useState('');
-
+  const [signUpError, setSignUpError] = useState('');
   const history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -26,9 +26,25 @@ const Signup = () => {
         history.push('/e-secim/login');
       })
       .catch((err) => {
-        console.error(err);
+        console.warn(err);
+        setSignUpError('Böyle bir kullanıcı mevcut...');
       });
   };
+
+  useEffect(() => {
+    let time: NodeJS.Timeout;
+    if (signUpError) {
+      time = setTimeout(() => {
+        setSignUpError('');
+      }, 3000);
+      setUserId('');
+      setUserPassword('');
+    }
+
+    return () => {
+      clearTimeout(time);
+    };
+  }, [signUpError]);
 
   return (
     <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)} className="signup-form-container">
@@ -60,6 +76,7 @@ const Signup = () => {
         </label>
       </div>
       {inputError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div> : null}
+      {signUpError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{signUpError}</div> : null}
       <button className="signup-submit-button" type="submit">
         Üye Ol
       </button>
