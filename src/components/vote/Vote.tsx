@@ -25,9 +25,15 @@ const Vote = () => {
   };
 
   useEffect(() => {
-    if (voteResponseCode === '200') {
-      history.push('/e-secim/results');
+    let time: NodeJS.Timeout;
+    if (voteResponseCode === '200' || voteResponseCode === '400') {
+      time = setTimeout(() => {
+        history.push('/e-secim/results');
+      }, 3000);
     }
+    return () => {
+      clearTimeout(time);
+    };
   }, [voteResponseCode, history]);
 
   return (
