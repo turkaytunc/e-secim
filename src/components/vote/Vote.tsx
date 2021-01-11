@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Store } from '../../store/Store';
 import { fetchCandidates } from '../../util/fetchCandidates';
+import sha256 from 'crypto-js/sha256';
 
 const Vote = () => {
   const [candidates, setCandidates] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
+  const { state } = useContext(Store);
 
   useEffect(() => {
     fetchCandidates()
@@ -14,6 +17,24 @@ const Vote = () => {
   useEffect(() => {
     console.log(selectedOption);
   }, [selectedOption]);
+
+  const giveVote = () => {
+    if (selectedOption === '') return;
+
+    const vote = sha256(state.user.tc + selectedOption).toString();
+
+    fetch('https://secim.webde.biz.tr/api/secim/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        AuthenticationValue: state.user.tcHash,
+        SifreliOyu: vote,
+      }),
+    }).then((data) => console.log(data));
+  };
 
   /* 
   {"adayNo":1,"adayAd":"Atakan Ertürk"}
