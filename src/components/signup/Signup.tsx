@@ -20,6 +20,7 @@ const Signup = () => {
       setInputError('Şifre minimum 5 karakter içermelidir!');
       return;
     }
+
     userSignUp(userId, userPassword)
       .then(() => {
         history.push('/e-secim/login');

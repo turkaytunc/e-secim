@@ -57,9 +57,15 @@ const Vote = () => {
           <button onClick={() => giveVote()}>Oy Ver</button>
         </>
       ) : voteResponseCode === '400' ? (
-        'oy kullanma Hakki yok'
+        <>
+          <div>Oy Kullanma Hakkınız Yok!</div>
+          <div>Sonuc Ekranına Yönlendiriliyorsunuz Lütfen Bekleyiniz...</div>
+        </>
       ) : (
-        'sonuclar ekrani'
+        <>
+          <div>Oyunuz Başarıyla Kaydedildi.</div>
+          <div>Sonuc Ekranına Yönlendiriliyorsunuz Lütfen Bekleyiniz...</div>
+        </>
       )}
     </div>
   );

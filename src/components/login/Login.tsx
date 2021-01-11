@@ -24,7 +24,6 @@ const Login = () => {
     }
 
     const hashedUserInfo = sha256(userId + userPassword).toString();
-
     validateUser(hashedUserInfo)
       .then((res) => setValidationStatus(res.status))
       .catch((err) => console.log(err));
@@ -41,9 +40,6 @@ const Login = () => {
       time = setTimeout(() => {
         setValidationStatus(0);
       }, 3000);
-    }
-    if (validationStatus === 200) {
-      console.log(state.user);
     }
     return () => {
       clearTimeout(time);
