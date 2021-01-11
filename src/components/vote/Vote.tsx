@@ -23,7 +23,7 @@ const Vote = () => {
 
     const vote = sha256(state.user.tc + selectedOption).toString();
 
-    fetch('https://secim.webde.biz.tr/api/secim/', {
+    fetch('https://secim.webde.biz.tr/api/secim/oykullan/', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -58,6 +58,7 @@ const Vote = () => {
           </label>
         </div>
       ))}
+      <button onClick={() => giveVote()}>Oy Ver</button>
     </div>
   );
 };
