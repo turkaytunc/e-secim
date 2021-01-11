@@ -22,6 +22,10 @@ const Header = (): JSX.Element => {
         <Link to="/e-secim/login">
           <button className="nav-button">Giriş Yap</button>
         </Link>
+
+        <Link to="/e-secim/results">
+          <button className="nav-button">Sonuçlar</button>
+        </Link>
       </div>
     </nav>
   );
