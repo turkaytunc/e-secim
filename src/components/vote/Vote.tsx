@@ -6,6 +6,14 @@ import { vote } from '../../util/vote';
 import { useHistory } from 'react-router-dom';
 import './vote.scss';
 
+//images
+
+import erturk from '../../static-files/erturk.jpg';
+import karacali from '../../static-files/karacali.jpg';
+import tunc from '../../static-files/tunc.jpg';
+
+const imgArr = [erturk, tunc, karacali];
+
 const Vote = () => {
   const [candidates, setCandidates] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
@@ -44,7 +52,8 @@ const Vote = () => {
           <div className="candidates-container">
             {candidates.map((el: any) => (
               <div key={el.adayNo} className="candidate">
-                <label>
+                <img className="candidate-img" src={imgArr[el.adayNo - 1]} alt="candidate" />
+                <label className="candidate-label">
                   <input
                     onChange={(event) => setSelectedOption(event.target.value)}
                     type="radio"
@@ -57,7 +66,9 @@ const Vote = () => {
               </div>
             ))}
           </div>
-          <button onClick={() => giveVote()}>Oy Ver</button>
+          <button className="vote-button" onClick={() => giveVote()}>
+            Oy Ver
+          </button>
         </div>
       ) : voteResponseCode === '400' ? (
         <>

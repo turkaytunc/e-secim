@@ -7,7 +7,28 @@
 }
 
 .candidate {
-  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 1em;
   width: 100%;
+}
+
+.candidate-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.candidate-label {
+  align-self: start;
+  margin-top: 0.5em;
+  font-size: 1.2em;
+}
+
+.vote-button {
+  width: 100%;
+  margin-top: 1em;
+  height: 2em;
 }
