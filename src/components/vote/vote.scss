@@ -20,8 +20,8 @@ $bg-color: rgb(216, 86, 63);
 }
 
 .candidate-img {
-  height: 150px;
-  width: 150px;
+  height: 90px;
+  width: 90px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -48,6 +48,19 @@ $bg-color: rgb(216, 86, 63);
   &:hover {
     color: white;
     box-shadow: 1px 1px 2px #999;
+  }
+}
+
+@media screen and (min-height: 650px) {
+  .candidate-img {
+    height: 110px;
+    width: 110px;
+  }
+}
+@media screen and (min-height: 750px) {
+  .candidate-img {
+    height: 150px;
+    width: 150px;
   }
 }
 
