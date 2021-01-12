@@ -73,12 +73,14 @@ const Vote = () => {
       ) : voteResponseCode === '400' ? (
         <>
           <div style={{ color: 'red' }}>Oy Kullanma Hakkınız Yok!</div>
-          <div>Sonuc Ekranına Yönlendiriliyorsunuz Lütfen Bekleyiniz...</div>
+          <div>Sonuç Ekranına Yönlendiriliyorsunuz.</div>
+          <div>Lütfen Bekleyiniz...</div>
         </>
       ) : (
         <>
           <div>Oyunuz Başarıyla Kaydedildi.</div>
-          <div>Sonuc Ekranına Yönlendiriliyorsunuz Lütfen Bekleyiniz...</div>
+          <div>Sonuc Ekranına Yönlendiriliyorsunuz.</div>
+          <div>Lütfen Bekleyiniz...</div>
         </>
       )}
     </div>
