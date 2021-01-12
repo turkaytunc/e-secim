@@ -1,0 +1,13 @@
+.candidates-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.candidate {
+  background-color: green;
+  margin-top: 1em;
+  width: 100%;
+}

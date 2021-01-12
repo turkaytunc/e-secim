@@ -4,6 +4,7 @@ import { fetchCandidates } from '../../util/fetchCandidates';
 import sha256 from 'crypto-js/sha256';
 import { vote } from '../../util/vote';
 import { useHistory } from 'react-router-dom';
+import './vote.scss';
 
 const Vote = () => {
   const [candidates, setCandidates] = useState([]);
@@ -39,23 +40,25 @@ const Vote = () => {
   return (
     <div>
       {voteResponseCode === '' ? (
-        <>
-          {candidates.map((el: any) => (
-            <div>
-              <label>
-                <input
-                  onChange={(event) => setSelectedOption(event.target.value)}
-                  type="radio"
-                  name="aday"
-                  value={el.adayNo}
-                  checked={selectedOption === `${el.adayNo}`}
-                />
-                {el.adayAd}
-              </label>
-            </div>
-          ))}
+        <div>
+          <div className="candidates-container">
+            {candidates.map((el: any) => (
+              <div key={el.adayNo} className="candidate">
+                <label>
+                  <input
+                    onChange={(event) => setSelectedOption(event.target.value)}
+                    type="radio"
+                    name="aday"
+                    value={el.adayNo}
+                    checked={selectedOption === `${el.adayNo}`}
+                  />
+                  {el.adayAd}
+                </label>
+              </div>
+            ))}
+          </div>
           <button onClick={() => giveVote()}>Oy Ver</button>
-        </>
+        </div>
       ) : voteResponseCode === '400' ? (
         <>
           <div style={{ color: 'red' }}>Oy Kullanma Hakkınız Yok!</div>
