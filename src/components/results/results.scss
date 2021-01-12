@@ -10,3 +10,9 @@
     width: 350px;
   }
 }
+@media screen and (min-width: 750px) {
+  .results-container {
+    height: 500px;
+    width: 500px;
+  }
+}
