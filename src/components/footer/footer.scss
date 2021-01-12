@@ -11,6 +11,7 @@
 
 .faq-container {
   font-size: 0.8em;
+  margin-top: 1em;
 }
 .copyright-container {
   font-size: 0.8em;
@@ -25,5 +26,10 @@
   .copyright-container {
     font-size: 0.9em;
     margin: 1em;
+  }
+
+  .faq-container {
+    padding-right: 1em;
+    margin-top: 0;
   }
 }
