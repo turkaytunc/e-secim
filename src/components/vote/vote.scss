@@ -13,6 +13,7 @@
   align-items: center;
   margin-top: 1em;
   width: 100%;
+  box-shadow: 1px 1px 3px black;
 }
 
 .candidate-img {
@@ -23,8 +24,10 @@
 
 .candidate-label {
   align-self: start;
-  margin-top: 0.5em;
+  padding-top: 0.5em;
   font-size: 1.2em;
+  background-color: grey;
+  width: 100%;
 }
 
 .vote-button {
