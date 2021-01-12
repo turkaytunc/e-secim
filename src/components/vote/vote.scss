@@ -1,3 +1,5 @@
+$bg-color: rgb(216, 86, 63);
+
 .candidates-container {
   display: flex;
   flex-direction: column;
@@ -14,24 +16,57 @@
   margin-top: 1em;
   width: 100%;
   box-shadow: 1px 1px 3px black;
+  border-radius: 5px;
 }
 
 .candidate-img {
   height: 150px;
   width: 150px;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .candidate-label {
   align-self: start;
   padding-top: 0.5em;
   font-size: 1.2em;
-  background-color: grey;
+  background-color: $bg-color;
   width: 100%;
 }
 
 .vote-button {
   width: 100%;
   margin-top: 1em;
-  height: 2em;
+  border-radius: 5px;
+  border: none;
+  background-color: $bg-color;
+  font-size: 1.4em;
+  box-shadow: 1px 1px 2px #222;
+  font-weight: bold;
+  color: #333;
+
+  &:hover {
+    color: white;
+    box-shadow: 1px 1px 2px #999;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .candidates-container {
+    flex-direction: row;
+    > div:first-child {
+      margin-left: 0;
+    }
+  }
+  .candidate {
+    margin-top: 0;
+    margin-left: 1em;
+  }
+
+  .vote-button {
+    margin-top: 2em;
+    width: 50%;
+    margin-left: 25%;
+    height: 1.5em;
+  }
 }
