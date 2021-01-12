@@ -5,7 +5,7 @@ import './results.scss';
 
 type Result = [{ aday: { adayNo: number; adayAd: string }; adligiOySayisi: number }];
 
-const initialState: Result = [{ aday: { adayNo: 0, adayAd: 'Sonuclar Guncelleniyor' }, adligiOySayisi: 0 }];
+const initialState: Result = [{ aday: { adayNo: 0, adayAd: 'Sonuçlar Güncelleniyor...' }, adligiOySayisi: 0 }];
 
 const Results = () => {
   const [result, setResult] = useState(initialState);
