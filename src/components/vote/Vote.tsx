@@ -71,17 +71,17 @@ const Vote = () => {
           </button>
         </div>
       ) : voteResponseCode === '400' ? (
-        <>
+        <div style={{ fontSize: '1.5em' }}>
           <div style={{ color: 'red' }}>Oy Kullanma Hakkınız Yok!</div>
           <div>Sonuç Ekranına Yönlendiriliyorsunuz.</div>
           <div>Lütfen Bekleyiniz...</div>
-        </>
+        </div>
       ) : (
-        <>
-          <div>Oyunuz Başarıyla Kaydedildi.</div>
-          <div>Sonuc Ekranına Yönlendiriliyorsunuz.</div>
+        <div style={{ fontSize: '1.5em' }}>
+          <div style={{ color: 'green' }}>Oyunuz Başarıyla Kaydedildi.</div>
+          <div>Sonuç Ekranına Yönlendiriliyorsunuz.</div>
           <div>Lütfen Bekleyiniz...</div>
-        </>
+        </div>
       )}
     </div>
   );
