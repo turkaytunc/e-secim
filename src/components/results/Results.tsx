@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { fetchResults } from '../../util/fetchResults';
 import VerticalBar from '../verticalBar/VerticalBar';
 import './results.scss';
 
@@ -10,14 +11,13 @@ const Results = () => {
   const [result, setResult] = useState(initialState);
 
   useEffect(() => {
-    const fetchResults = () =>
-      fetch('https://secim.webde.biz.tr/api/secim/secimsonuclari')
-        .then((data) => data.json())
-        .then((data) => setResult(data));
+    fetchResults().then((data) => setResult(data));
+  }, []);
 
+  useEffect(() => {
     let time: NodeJS.Timeout;
     time = setTimeout(() => {
-      fetchResults();
+      fetchResults().then((data) => setResult(data));
     }, 5000);
 
     return () => {
@@ -27,7 +27,6 @@ const Results = () => {
 
   return (
     <div className="results-container">
-      Todo: sonuclari goruntule
       <VerticalBar voteData={result.map((e) => e.adligiOySayisi)} candidates={result.map((e) => e.aday.adayAd)} />
     </div>
   );

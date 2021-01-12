@@ -26,6 +26,11 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
         {
           ticks: {
             beginAtZero: true,
+            callback: function (value: number) {
+              if (value % 1 === 0) {
+                return value;
+              }
+            },
           },
         },
       ],
@@ -34,7 +39,7 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
 
   return (
     <>
-      <div className="header"></div>
+      <div className="header">Seçim Sonuçları</div>
       <Bar data={data} options={options} type="bar" />
     </>
   );
