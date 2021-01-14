@@ -54,7 +54,10 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
 
   return (
     <>
-      <div className="results-header">Seçim Sonuçları</div>
+      <div className="results-header">
+        <div>Seçim Sonuçları</div>
+        <div className="results-header-span">Güncellenme aralığı 5 saniyedir.</div>
+      </div>
       <Bar data={data} options={options} type="bar" />
     </>
   );
