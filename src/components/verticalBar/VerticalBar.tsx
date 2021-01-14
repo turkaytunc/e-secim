@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bar } from '@reactchartjs/react-chart.js';
+import './vertical-bar.scss';
 
 interface IProps {
   voteData: number[];
@@ -13,8 +14,22 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
       {
         label: 'Oylar',
         data: voteData,
-        backgroundColor: ['rgba(196, 37, 9, 0.2)', 'rgba(54, 162, 250, 0.2)', 'rgba(255, 206, 86, 0.2)'],
-        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+        backgroundColor: [
+          'rgba(196, 37, 9, 0.2)',
+          'rgba(54, 162, 250, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(182, 255, 86, 0.2)',
+          'rgba(255, 86, 247, 0.2)',
+          'rgba(255, 120, 86, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgb(182, 255, 86)',
+          'rgb(255, 86, 247)',
+          'rgb(255, 120, 86)',
+        ],
         borderWidth: 1,
       },
     ],
@@ -39,7 +54,7 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
 
   return (
     <>
-      <div className="header">Seçim Sonuçları</div>
+      <div className="results-header">Seçim Sonuçları</div>
       <Bar data={data} options={options} type="bar" />
     </>
   );
