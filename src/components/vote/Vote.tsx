@@ -34,11 +34,7 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
       <div className="candidates-container">
         {candidates.map((el: any) => (
           <div key={el.adayNo} className="candidate">
-            <img
-              className="candidate-img"
-              src={imgArr[el.adayNo - 1] ? imgArr[el.adayNo - 1] : placeholderPhoto}
-              alt="candidate"
-            />
+            <img className="candidate-img" src={imgArr[el.adayNo - 1] || placeholderPhoto} alt="candidate" />
             <label className="candidate-label">
               <input
                 onChange={(event) => setSelectedOption(event.target.value)}

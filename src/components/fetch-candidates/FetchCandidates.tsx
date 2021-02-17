@@ -9,7 +9,11 @@ const FetchCandidates = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetchCandidates().then((data) => setCandidates(data));
+    const handleCandidates = async () => {
+      const data = await fetchCandidates();
+      setCandidates(data);
+    };
+    handleCandidates();
   }, []);
 
   useEffect(() => {

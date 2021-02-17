@@ -3,8 +3,29 @@ import FetchCandidates from '../components/fetch-candidates/FetchCandidates';
 
 beforeEach(cleanup);
 
+interface ICandidates {
+  candidates: object[];
+}
+
+const candidates = [
+  {
+    adayNo: 1,
+    adayAd: 'Atakan Ertürk',
+  },
+  {
+    adayNo: 2,
+    adayAd: 'Türkay Tunç',
+  },
+  {
+    adayNo: 3,
+    adayAd: 'Atakan Karaçalı',
+  },
+];
+
 describe('<FetchCandidates/>', () => {
   it('should render without crash', () => {
-    render(<FetchCandidates />);
+    const { container } = render(<FetchCandidates />);
+
+    console.log(container);
   });
 });
