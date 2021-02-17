@@ -25,7 +25,5 @@ const candidates = [
 describe('<FetchCandidates/>', () => {
   it('should render without crash', () => {
     const { container } = render(<FetchCandidates />);
-
-    console.log(container);
   });
 });

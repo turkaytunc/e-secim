@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchCandidates } from '../../util/fetchCandidates';
 import { useHistory } from 'react-router-dom';
 import Vote from '../vote/Vote';
+import RedirectVote from '../redirect-vote/RedirectVote';
 
 const FetchCandidates = () => {
   const [candidates, setCandidates] = useState<[]>([]);
@@ -33,17 +34,9 @@ const FetchCandidates = () => {
       {voteResponseCode === '' ? (
         <Vote candidates={candidates} setVoteResponseCode={setVoteResponseCode} />
       ) : voteResponseCode === '400' ? (
-        <div style={{ fontSize: '1.5em' }}>
-          <div style={{ color: 'red' }}>Oy Kullanma Hakkınız Yok!</div>
-          <div>Sonuç Ekranına Yönlendiriliyorsunuz.</div>
-          <div>Lütfen Bekleyiniz...</div>
-        </div>
+        <RedirectVote confirmed={false} />
       ) : (
-        <div style={{ fontSize: '1.5em' }}>
-          <div style={{ color: 'green' }}>Oyunuz Başarıyla Kaydedildi.</div>
-          <div>Sonuç Ekranına Yönlendiriliyorsunuz.</div>
-          <div>Lütfen Bekleyiniz...</div>
-        </div>
+        <RedirectVote confirmed={true} />
       )}
     </div>
   );
