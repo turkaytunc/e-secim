@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCandidates } from '../../util/fetchCandidates';
 import { useHistory } from 'react-router-dom';
-import Vote from '../vote-candidate/Vote';
+import Vote from '../vote/Vote';
 
 const FetchCandidates = () => {
   const [candidates, setCandidates] = useState<[]>([]);
