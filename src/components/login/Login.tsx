@@ -3,7 +3,7 @@ import './login.scss';
 import sha256 from 'crypto-js/sha256';
 import { Store } from '../../store/Store';
 import { validateUser } from '../../util/validateUser';
-import Vote from '../vote/Vote';
+import Vote from '../vote/FetchCandidates';
 
 const Login = () => {
   const [userId, setUserId] = useState('');

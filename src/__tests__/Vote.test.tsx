@@ -1,5 +1,5 @@
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import Vote from '../components/vote/Vote';
+import Vote from '../components/vote/FetchCandidates';
 import { fetchCandidates } from '../util/fetchCandidates';
 
 beforeEach(cleanup);
@@ -10,7 +10,7 @@ describe('<Vote/>', () => {
   it('should render without crash', () => {
     render(<Vote />);
   });
-  it('should fire select event', () => {
+  it('should fire select even', () => {
     const { queryByTestId, debug } = render(<Vote />);
     debug();
     expect(queryByTestId('vote-action')).toBeTruthy();
