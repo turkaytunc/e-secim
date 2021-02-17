@@ -9,9 +9,7 @@ const FetchCandidates = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetchCandidates()
-      .then((data) => setCandidates(data))
-      .catch((err) => console.log(err));
+    fetchCandidates().then((data) => setCandidates(data));
   }, []);
 
   useEffect(() => {
