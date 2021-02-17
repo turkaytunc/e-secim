@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from '@reactchartjs/react-chart.js';
 import './vertical-bar.scss';
 
-interface IProps {
+export interface IProps {
   voteData: number[];
   candidates: string[];
 }
