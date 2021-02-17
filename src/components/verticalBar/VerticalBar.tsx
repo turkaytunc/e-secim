@@ -41,11 +41,7 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
         {
           ticks: {
             beginAtZero: true,
-            callback: function (value: number) {
-              if (value % 1 === 0) {
-                return value;
-              }
-            },
+            stepSize: 1,
           },
         },
       ],
