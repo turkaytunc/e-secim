@@ -1,6 +1,5 @@
-import { render, cleanup, fireEvent, queryByTestId, getByTestId } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import Vote from '../components/vote/Vote';
-import sha256 from 'crypto-js/sha256';
 import { StoreProvider } from '../store/Store';
 
 beforeEach(cleanup);
@@ -19,7 +18,7 @@ const candidates = [
     adayAd: 'Atakan Karaçalı',
   },
 ];
-const giveVote = jest.fn(() => {});
+
 const voteComp = (
   <StoreProvider>
     <Vote candidates={candidates} setVoteResponseCode={() => '200'} />

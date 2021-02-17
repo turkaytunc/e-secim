@@ -1,6 +1,11 @@
 import { render, cleanup } from '@testing-library/react';
 import VerticalBar, { IProps } from '../components/verticalBar/VerticalBar';
 import 'jest-canvas-mock';
+
+jest.mock('@reactchartjs/react-chart.js', () => ({
+  Bar: () => null,
+}));
+
 beforeEach(cleanup);
 
 describe('<VerticalBar/>', () => {

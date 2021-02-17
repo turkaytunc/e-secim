@@ -34,7 +34,6 @@ const VerticalBar = ({ voteData, candidates }: IProps) => {
       },
     ],
   };
-
   const options = {
     scales: {
       yAxes: [
