@@ -63,6 +63,7 @@ const Vote = () => {
                     onChange={(event) => setSelectedOption(event.target.value)}
                     type="radio"
                     name="aday"
+                    data-testid="vote-action"
                     value={el.adayNo}
                     checked={selectedOption === `${el.adayNo}`}
                   />
