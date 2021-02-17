@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Store } from '../../store/Store';
-import sha256 from 'crypto-js/sha256';
 import { vote } from '../../util/vote';
 import './vote.scss';
 
@@ -15,7 +14,7 @@ import { useState } from 'react';
 const imgArr = [erturk, tunc, karacali];
 
 interface ICandidates {
-  candidates: [];
+  candidates: object[];
   setVoteResponseCode: (status: string) => void;
 }
 
@@ -25,8 +24,9 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
 
   const giveVote = () => {
     if (selectedOption === '') return;
-    const voteHash = sha256(state.user.tc + selectedOption).toString();
-    vote(voteHash, state.user.tcHash).then((res) => setVoteResponseCode(res.status.toString()));
+    else {
+      vote(state.user.tc, selectedOption, state.user.tcHash).then((res) => setVoteResponseCode(res.status.toString()));
+    }
   };
 
   return (
@@ -44,7 +44,7 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
                 onChange={(event) => setSelectedOption(event.target.value)}
                 type="radio"
                 name="aday"
-                data-testid="vote-action"
+                data-testid="vote-input-action"
                 value={el.adayNo}
                 checked={selectedOption === `${el.adayNo}`}
               />
@@ -53,7 +53,7 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
           </div>
         ))}
       </div>
-      <button className="vote-button" onClick={() => giveVote()}>
+      <button data-testid="vote-action" className="vote-button" onClick={() => giveVote()}>
         Oy Ver
       </button>
     </div>

@@ -1,5 +1,8 @@
-export const vote = (voteHash: string, tcHash: string) =>
-  fetch('https://secim.webde.biz.tr/api/secim/oykullan/', {
+import sha256 from 'crypto-js/sha256';
+
+export const vote = (tc: string, selectedOption: string, tcHash: string) => {
+  const voteHash = sha256(tc + selectedOption).toString();
+  return fetch('https://secim.webde.biz.tr/api/secim/oykullan/', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -10,3 +13,4 @@ export const vote = (voteHash: string, tcHash: string) =>
       SifreliOyu: voteHash,
     }),
   });
+};
