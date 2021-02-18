@@ -1,29 +1,13 @@
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, act } from '@testing-library/react';
 import FetchCandidates from '../components/fetch-candidates/FetchCandidates';
 
 beforeEach(cleanup);
-
-interface ICandidates {
-  candidates: object[];
-}
-
-const candidates = [
-  {
-    adayNo: 1,
-    adayAd: 'Atakan Ertürk',
-  },
-  {
-    adayNo: 2,
-    adayAd: 'Türkay Tunç',
-  },
-  {
-    adayNo: 3,
-    adayAd: 'Atakan Karaçalı',
-  },
-];
+beforeAll(() => jest.spyOn(window, 'fetch'));
 
 describe('<FetchCandidates/>', () => {
-  it('should render without crash', () => {
-    const { container } = render(<FetchCandidates />);
+  it('should render without crash', async () => {
+    render(<FetchCandidates />);
+
+    await act(() => Promise.resolve());
   });
 });
