@@ -42,7 +42,6 @@ describe('<Signup />', () => {
       const { getByTestId } = render(<Signup />);
       fireEvent.change(getByTestId('signup-tc-input'), { target: { value: '222222222222' } });
       fireEvent.change(getByTestId('signup-password-input'), { target: { value: '' } });
-
       fireEvent.click(getByTestId('signup-submit-button'));
     });
   });

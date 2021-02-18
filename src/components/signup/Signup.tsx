@@ -16,13 +16,10 @@ const Signup = () => {
 
     setInputError(validateInput(userId, userPassword));
 
-    userSignUp(userId, userPassword)
-      .then(() => {
-        history.push('/e-secim/login');
-      })
-      .catch((err) => {
-        setSignUpError('Böyle bir kullanıcı mevcut...');
-      });
+    userSignUp(userId, userPassword).then((res) => {
+      if (res !== 'error') history.push('/e-secim/login');
+      setSignUpError('Böyle bir kullanıcı mevcut...');
+    });
   };
 
   useEffect(() => {
