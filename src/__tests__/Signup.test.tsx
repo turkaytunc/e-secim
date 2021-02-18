@@ -1,7 +1,9 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, act } from '@testing-library/react';
 import Signup from '../components/signup/Signup';
+import { userSignUp } from '../util/userSignUp';
 
 beforeEach(cleanup);
+beforeAll(() => jest.spyOn(window, 'fetch'));
 
 describe('<Signup />', () => {
   describe('Succesful signup', () => {
@@ -38,11 +40,19 @@ describe('<Signup />', () => {
   });
 
   describe('Failed signup', () => {
-    it('should fail signup', () => {
+    it('should fail signup', async () => {
+      (window.fetch as jest.Mock).mockResolvedValue({
+        status: 300,
+      });
       const { getByTestId } = render(<Signup />);
       fireEvent.change(getByTestId('signup-tc-input'), { target: { value: '222222222222' } });
-      fireEvent.change(getByTestId('signup-password-input'), { target: { value: '' } });
+
+      fireEvent.change(getByTestId('signup-password-input'), { target: { value: '12345' } });
       fireEvent.click(getByTestId('signup-submit-button'));
+
+      await act(() => Promise.resolve());
     });
+
+    //return userSignUp('hey', '1234').then((res) => expect(res.status).toBe(400));
   });
 });

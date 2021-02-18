@@ -16,15 +16,23 @@ const Signup = () => {
 
     setInputError(validateInput(userId, userPassword));
 
-    userSignUp(userId, userPassword).then((res) => {
-      if (res !== 'error') history.push('/e-secim/login');
-      setSignUpError('Böyle bir kullanıcı mevcut...');
-    });
+    userSignUp(userId, userPassword)
+      .then((res) => {
+        if (res.status !== 400) {
+          history.push('/e-secim/login');
+        }
+      })
+      .catch((error) => {
+        if (error) {
+          setSignUpError('Böyle bir kullanıcı mevcut...');
+        }
+      });
   };
 
   useEffect(() => {
+    let mount = true;
     let time: NodeJS.Timeout;
-    if (signUpError) {
+    if (signUpError && mount) {
       time = setTimeout(() => {
         setSignUpError('');
       }, 3000);
@@ -34,6 +42,7 @@ const Signup = () => {
 
     return () => {
       clearTimeout(time);
+      mount = false;
     };
   }, [signUpError]);
 
