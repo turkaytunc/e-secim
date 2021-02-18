@@ -1,6 +1,5 @@
 import { render, cleanup, fireEvent, act } from '@testing-library/react';
 import Signup from '../components/signup/Signup';
-import { userSignUp } from '../util/userSignUp';
 
 beforeEach(cleanup);
 beforeAll(() => jest.spyOn(window, 'fetch'));
@@ -40,19 +39,20 @@ describe('<Signup />', () => {
   });
 
   describe('Failed signup', () => {
-    it('should fail signup', async () => {
+    it('should fail signup and trigger error route', async () => {
       (window.fetch as jest.Mock).mockResolvedValue({
         status: 300,
       });
-      const { getByTestId } = render(<Signup />);
-      fireEvent.change(getByTestId('signup-tc-input'), { target: { value: '222222222222' } });
 
-      fireEvent.change(getByTestId('signup-password-input'), { target: { value: '12345' } });
+      const { getByTestId, container } = render(<Signup />);
+
+      fireEvent.change(getByTestId('signup-tc-input'), { target: { value: '12345678900' } });
+      fireEvent.change(getByTestId('signup-password-input'), { target: { value: '1234' } });
       fireEvent.click(getByTestId('signup-submit-button'));
+
+      expect(container.innerHTML).toMatch(/Şifre minimum 5 karakter içermelidir!/i);
 
       await act(() => Promise.resolve());
     });
-
-    //return userSignUp('hey', '1234').then((res) => expect(res.status).toBe(400));
   });
 });

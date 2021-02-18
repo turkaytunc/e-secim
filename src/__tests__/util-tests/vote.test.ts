@@ -2,7 +2,7 @@ import { vote } from '../../util/vote';
 beforeAll(() => jest.spyOn(window, 'fetch'));
 
 describe('vote action handler', () => {
-  it('hey', async () => {
+  it('should not allow vote operation', async () => {
     (window.fetch as jest.Mock).mockResolvedValue({
       status: 400,
     });
