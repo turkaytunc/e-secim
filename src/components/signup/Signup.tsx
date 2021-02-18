@@ -21,7 +21,6 @@ const Signup = () => {
         history.push('/e-secim/login');
       })
       .catch((err) => {
-        console.warn(err);
         setSignUpError('Böyle bir kullanıcı mevcut...');
       });
   };
@@ -53,6 +52,7 @@ const Signup = () => {
             type="text"
             name="tc-kimlik-no"
             id="tc-kimlik-no"
+            data-testid="signup-tc-input"
             value={userId}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserId(event.target.value)}
             onFocus={() => setInputError('')}
@@ -64,15 +64,16 @@ const Signup = () => {
             type="password"
             name="sifre"
             id="sifre"
+            data-testid="signup-password-input"
             value={userPassword}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserPassword(event.target.value)}
             onFocus={() => setInputError('')}
           />
         </label>
       </div>
-      {inputError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div> : null}
-      {signUpError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{signUpError}</div> : null}
-      <button className="signup-submit-button" type="submit">
+      {inputError && <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div>}
+      {signUpError && <div style={{ color: 'red', paddingBottom: '1em' }}>{signUpError}</div>}
+      <button className="signup-submit-button" data-testid="signup-submit-button" type="submit">
         Üye Ol
       </button>
     </form>
