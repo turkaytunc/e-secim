@@ -33,9 +33,10 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.tsx",
+      "src/**/*.(ts|tsx)",
       "!src/index.tsx",
-      "!src/store/*.(ts|tsx)"
+      "!src/store/**/*.(ts|tsx)",
+      "!src/**/*.d.ts"
     ],
     "coverageThreshold": {
       "global": {
