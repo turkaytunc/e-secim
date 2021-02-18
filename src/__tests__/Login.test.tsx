@@ -1,7 +1,8 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, act } from '@testing-library/react';
 import Login from '../components/login/Login';
 
 beforeEach(cleanup);
+beforeAll(() => jest.spyOn(window, 'fetch'));
 
 describe('<Login />', () => {
   it('should render without crash', () => {
@@ -73,11 +74,16 @@ describe('<Login />', () => {
   });
 
   describe('Validationstatus', () => {
-    it('should test succesful login operation', () => {
+    it('should test succesful login operation', async () => {
+      (window.fetch as jest.Mock).mockResolvedValue({ json: () => Promise.resolve({ status: 200 }) });
+
       const { getByTestId } = render(<Login />);
+
       fireEvent.change(getByTestId('login-tc-input'), { target: { value: '12345678999' } });
       fireEvent.change(getByTestId('login-password-input'), { target: { value: '123456' } });
       fireEvent.click(getByTestId('login-submit-button'));
+
+      await act(() => Promise.resolve());
     });
   });
 });

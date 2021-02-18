@@ -20,7 +20,9 @@ const Login = () => {
 
     const hashedUserInfo = sha256(userId + userPassword).toString();
 
-    validateUser(hashedUserInfo).then((res) => setValidationStatus(res));
+    validateUser(hashedUserInfo)
+      .then((res) => setValidationStatus(res.status))
+      .catch((err) => console.log(err));
 
     dispatch({ type: 'ADD_TC', payload: userId });
     dispatch({ type: 'ADD_TC_HASH', payload: hashedUserInfo });
