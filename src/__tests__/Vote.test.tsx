@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, queryByTestId } from '@testing-library/react';
 import Vote from '../components/vote/Vote';
 import { StoreProvider } from '../store/Store';
 
@@ -18,8 +18,8 @@ const candidates = [
     adayAd: 'Atakan Karaçalı',
   },
 ];
-
-const setVoteResponseCode = jest.fn();
+let voteResponseCode = '';
+const setVoteResponseCode = jest.fn(() => (voteResponseCode = '200'));
 
 const voteComp = (
   <StoreProvider>
@@ -27,9 +27,9 @@ const voteComp = (
   </StoreProvider>
 );
 
-describe('<Vote/>', () => {
-  beforeEach(jest.clearAllMocks);
+beforeEach(jest.clearAllMocks);
 
+describe('<Vote/>', () => {
   it('should render without crash', () => {
     render(voteComp);
   });
@@ -48,7 +48,7 @@ describe('<Vote/>', () => {
 
   it('should fire onClick event', () => {
     const { getByTestId } = render(voteComp);
-    fireEvent.click(getByTestId('vote-action'), { button: 1 });
+    fireEvent.click(getByTestId('vote-action'));
   });
 
   it('should match candidate name Atakan', () => {

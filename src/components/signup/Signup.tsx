@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { userSignUp } from '../../util/userSignUp';
+import { validateInput } from '../../util/validateInput';
 import './signup.scss';
 
 const Signup = () => {
@@ -13,13 +14,7 @@ const Signup = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (userId.length !== 11) {
-      setInputError('Lütfen geçerli bir tc kimlik numarası giriniz!');
-      return;
-    } else if (userPassword.length < 5) {
-      setInputError('Şifre minimum 5 karakter içermelidir!');
-      return;
-    }
+    setInputError(validateInput(userId, userPassword));
 
     userSignUp(userId, userPassword)
       .then(() => {

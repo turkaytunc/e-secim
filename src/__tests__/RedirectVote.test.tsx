@@ -4,7 +4,7 @@ import RedirectVote from '../components/redirect-vote/RedirectVote';
 beforeEach(cleanup);
 
 describe('<RedirectVote />', () => {
-  it('should render without crash', () => {
+  it('should render without crash with green text', () => {
     render(<RedirectVote confirmed />);
   });
 

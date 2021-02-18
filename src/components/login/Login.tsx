@@ -4,6 +4,7 @@ import sha256 from 'crypto-js/sha256';
 import { Store } from '../../store/Store';
 import { validateUser } from '../../util/validateUser';
 import Vote from '../fetch-candidates/FetchCandidates';
+import { validateInput } from '../../util/validateInput';
 
 const Login = () => {
   const [userId, setUserId] = useState('');
@@ -15,13 +16,7 @@ const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (userId.length !== 11) {
-      setInputError('Lütfen geçerli bir tc kimlik numarası giriniz!');
-      return;
-    } else if (userPassword.length < 5) {
-      setInputError('Şifre minimum 5 karakter içermelidir!');
-      return;
-    }
+    setInputError(validateInput(userId, userPassword));
 
     const hashedUserInfo = sha256(userId + userPassword).toString();
     validateUser(hashedUserInfo)
