@@ -1,9 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import App from '../App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Anasayfa/i);
-  expect(linkElement).toBeInTheDocument();
+beforeEach(cleanup);
+
+describe('<App/>', () => {
+  it('renders component without crash', () => {
+    const { queryByTestId } = render(<App />);
+    expect(queryByTestId('application')).toBeTruthy();
+  });
 });

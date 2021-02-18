@@ -19,13 +19,17 @@ const candidates = [
   },
 ];
 
+const setVoteResponseCode = jest.fn();
+
 const voteComp = (
   <StoreProvider>
-    <Vote candidates={candidates} setVoteResponseCode={() => '200'} />
+    <Vote candidates={candidates} setVoteResponseCode={setVoteResponseCode} />
   </StoreProvider>
 );
 
 describe('<Vote/>', () => {
+  beforeEach(jest.clearAllMocks);
+
   it('should render without crash', () => {
     render(voteComp);
   });
@@ -45,5 +49,10 @@ describe('<Vote/>', () => {
   it('should fire onClick event', () => {
     const { getByTestId } = render(voteComp);
     fireEvent.click(getByTestId('vote-action'), { button: 1 });
+  });
+
+  it('should match candidate name Atakan', () => {
+    const { queryAllByTestId } = render(voteComp);
+    expect(queryAllByTestId('vote-input-action')[0].parentElement?.innerHTML).toMatch(/Atakan/);
   });
 });

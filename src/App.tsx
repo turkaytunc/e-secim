@@ -11,7 +11,7 @@ import Results from './components/results/Results';
 function App(): JSX.Element {
   return (
     <Router>
-      <div className="app">
+      <div className="app" data-testid="application">
         <Header />
         <main className="main-container">
           <Switch>

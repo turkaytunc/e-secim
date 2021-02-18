@@ -22,11 +22,11 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
   const { state } = useContext(Store);
   const [selectedOption, setSelectedOption] = useState('');
 
-  const giveVote = () => {
+  const giveVote = async () => {
     if (selectedOption === '') return;
-    else {
-      vote(state.user.tc, selectedOption, state.user.tcHash).then((res) => setVoteResponseCode(res.status.toString()));
-    }
+
+    const voteResult = await vote(state.user.tc, selectedOption, state.user.tcHash);
+    setVoteResponseCode(voteResult.status.toString());
   };
 
   return (
