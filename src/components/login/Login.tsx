@@ -19,9 +19,8 @@ const Login = () => {
     setInputError(validateInput(userId, userPassword));
 
     const hashedUserInfo = sha256(userId + userPassword).toString();
-    validateUser(hashedUserInfo)
-      .then((res) => setValidationStatus(res.status))
-      .catch((err) => console.log(err));
+
+    validateUser(hashedUserInfo).then((res) => setValidationStatus(res));
 
     dispatch({ type: 'ADD_TC', payload: userId });
     dispatch({ type: 'ADD_TC_HASH', payload: hashedUserInfo });
@@ -60,6 +59,7 @@ const Login = () => {
                 type="text"
                 name="tc-kimlik-no"
                 id="tc-kimlik-no"
+                data-testid="login-tc-input"
                 value={userId}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserId(event.target.value)}
                 onFocus={() => setInputError('')}
@@ -71,15 +71,16 @@ const Login = () => {
                 type="password"
                 name="sifre"
                 id="sifre"
+                data-testid="login-password-input"
                 value={userPassword}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUserPassword(event.target.value)}
                 onFocus={() => setInputError('')}
               />
             </label>
           </div>
-          {inputError ? <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div> : null}
-          <div style={{ color: 'red' }}>{validationStatus === 401 ? 'Eksik veya hatalı giriş yaptınız!' : null}</div>
-          <button className="login-submit-button" type="submit">
+          {inputError && <div style={{ color: 'red', paddingBottom: '1em' }}>{inputError}</div>}
+          {validationStatus === 401 ? <div style={{ color: 'red' }}>Eksik veya hatalı giriş yaptınız!</div> : null}
+          <button className="login-submit-button" data-testid="login-submit-button" type="submit">
             Giriş Yap
           </button>
         </form>
