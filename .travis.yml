@@ -12,7 +12,7 @@ branches:
 script:
   - npm install -g codecov
   - npm test -- --clearCache
-  - CI=true npm test -- --coverage
+  - npm test -- --coverage
   - CI=false npm run build
 after_script:
   - COVERALLS_REPO_TOKEN=$COVERALL_TOKEN npm run coveralls
