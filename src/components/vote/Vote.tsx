@@ -8,8 +8,9 @@ import './vote.scss';
 import erturk from '../../static-files/erturk.jpg';
 import karacali from '../../static-files/karacali.jpg';
 import tunc from '../../static-files/tunc.jpg';
-import placeholderPhoto from '../../static-files/ph.jpg';
+
 import { useState } from 'react';
+import CandidateChoice from './candidate-choice/CandidateChoice';
 
 const imgArr = [erturk, tunc, karacali];
 
@@ -22,31 +23,23 @@ const Vote = ({ candidates, setVoteResponseCode }: ICandidates) => {
   const { state } = useContext(Store);
   const [selectedOption, setSelectedOption] = useState('');
 
-  const giveVote = async () => {
+  const giveVote = () => {
     if (selectedOption === '') return;
 
-    const voteResult = await vote(state.user.tc, selectedOption, state.user.tcHash);
-    setVoteResponseCode(voteResult.status.toString());
+    vote(state.user.tc, selectedOption, state.user.tcHash).then((res) => setVoteResponseCode(res.status.toString()));
   };
 
   return (
     <div>
       <div className="candidates-container">
         {candidates.map((el: any) => (
-          <div key={el.adayNo} className="candidate">
-            <img className="candidate-img" src={imgArr[el.adayNo - 1] || placeholderPhoto} alt="candidate" />
-            <label className="candidate-label">
-              <input
-                onChange={(event) => setSelectedOption(event.target.value)}
-                type="radio"
-                name="aday"
-                data-testid="vote-input-action"
-                value={el.adayNo}
-                checked={selectedOption === `${el.adayNo}`}
-              />
-              {el.adayAd}
-            </label>
-          </div>
+          <CandidateChoice
+            el={el}
+            key={el.adayNo}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            imgArr={imgArr}
+          />
         ))}
       </div>
       <button data-testid="vote-action" className="vote-button" onClick={() => giveVote()}>

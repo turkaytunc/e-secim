@@ -6,14 +6,20 @@ jest.mock('@reactchartjs/react-chart.js', () => ({
   Bar: () => null,
 }));
 
+jest.useFakeTimers();
+
 beforeEach(cleanup);
 beforeAll(() => jest.spyOn(window, 'fetch'));
 
 describe('<Results />', () => {
   it('should render without crash', async () => {
     (window.fetch as jest.Mock).mockResolvedValue({ json: () => Promise.resolve([]) });
+    const { getByTestId } = render(<Results />);
 
-    render(<Results />);
+    setTimeout(() => {}, 6000);
+
+    jest.runAllTimers();
+
     await act(() => Promise.resolve());
   });
 });

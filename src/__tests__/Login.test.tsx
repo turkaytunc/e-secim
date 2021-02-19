@@ -75,9 +75,9 @@ describe('<Login />', () => {
 
   describe('Validationstatus', () => {
     it('should test succesful login operation', async () => {
-      (window.fetch as jest.Mock).mockResolvedValue({ json: () => Promise.resolve({ status: 200 }) });
-
       const { getByTestId } = render(<Login />);
+
+      (window.fetch as jest.Mock).mockResolvedValue({ status: 200, data: [{}] });
 
       fireEvent.change(getByTestId('login-tc-input'), { target: { value: '12345678999' } });
       fireEvent.change(getByTestId('login-password-input'), { target: { value: '123456' } });

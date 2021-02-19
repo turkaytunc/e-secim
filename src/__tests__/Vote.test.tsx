@@ -1,8 +1,10 @@
-import { render, cleanup, fireEvent, queryByTestId } from '@testing-library/react';
+import { render, cleanup, fireEvent, act } from '@testing-library/react';
 import Vote from '../components/vote/Vote';
 import { StoreProvider } from '../store/Store';
 
 beforeEach(cleanup);
+beforeAll(() => jest.spyOn(window, 'fetch'));
+jest.useFakeTimers();
 
 const candidates = [
   {
@@ -27,32 +29,37 @@ const voteComp = (
   </StoreProvider>
 );
 
-beforeEach(jest.clearAllMocks);
-
 describe('<Vote/>', () => {
   it('should render without crash', () => {
     render(voteComp);
   });
 
   it('should find by test id', () => {
-    const { queryAllByTestId } = render(voteComp);
-    expect(queryAllByTestId('vote-input-action')[0]).toBeTruthy();
+    const { getByTestId } = render(voteComp);
+    expect(getByTestId('vote-input-action-1')).toBeTruthy();
+    expect(getByTestId('vote-input-action-2')).toBeTruthy();
+    expect(getByTestId('vote-input-action-3')).toBeTruthy();
   });
 
   it('should fire onChange event', () => {
-    const { queryAllByTestId } = render(voteComp);
-    expect(queryAllByTestId('vote-input-action')[0]).not.toBeChecked();
-    fireEvent.change(queryAllByTestId('vote-input-action')[0], { target: { checked: true, value: '1' } });
-    expect(queryAllByTestId('vote-input-action')[0]).toBeChecked();
+    const { getByTestId } = render(voteComp);
+    expect(getByTestId('vote-input-action-1')).not.toBeChecked();
+    fireEvent.change(getByTestId('vote-input-action-1'), { target: { checked: true, value: '1' } });
+    expect(getByTestId('vote-input-action-1')).toBeChecked();
   });
 
-  it('should fire onClick event', () => {
-    const { getByTestId } = render(voteComp);
+  it('should fire onClick event', async () => {
+    const { getByTestId, debug } = render(voteComp);
+    (window.fetch as jest.Mock).mockResolvedValue({ status: 200 });
+    fireEvent.change(getByTestId('vote-input-action-2'), { target: { checked: true, value: '2' } });
     fireEvent.click(getByTestId('vote-action'));
+
+    await act(() => Promise.resolve());
+    debug();
   });
 
   it('should match candidate name Atakan', () => {
-    const { queryAllByTestId } = render(voteComp);
-    expect(queryAllByTestId('vote-input-action')[0].parentElement?.innerHTML).toMatch(/Atakan/);
+    const { getByTestId } = render(voteComp);
+    expect(getByTestId('vote-input-action-2').parentElement?.innerHTML).toMatch(/Türkay/);
   });
 });

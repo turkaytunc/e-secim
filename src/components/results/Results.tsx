@@ -23,7 +23,7 @@ const Results = () => {
     return () => {
       clearTimeout(time);
     };
-  });
+  }, [result]);
 
   return (
     <div className="results-container">
