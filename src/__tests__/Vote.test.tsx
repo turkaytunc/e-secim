@@ -49,13 +49,12 @@ describe('<Vote/>', () => {
   });
 
   it('should fire onClick event', async () => {
-    const { getByTestId, debug } = render(voteComp);
+    const { getByTestId } = render(voteComp);
     (window.fetch as jest.Mock).mockResolvedValue({ status: 200 });
     fireEvent.change(getByTestId('vote-input-action-2'), { target: { checked: true, value: '2' } });
     fireEvent.click(getByTestId('vote-action'));
 
     await act(() => Promise.resolve());
-    debug();
   });
 
   it('should match candidate name Atakan', () => {

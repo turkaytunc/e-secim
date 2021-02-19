@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - 'stable'
+cache:
+  directories:
+    - node_modules
+branches:
+  except:
+    - test
+  only:
+    - main
+script:
+  - npm install -g codecov
+  - npm test -- --clearCache
+  - npm test -- --coverage
+  - CI=false npm run build
+after_script:
+  - COVERALLS_REPO_TOKEN=$COVERALL_TOKEN npm run coveralls
+  - CODECOV_TOKEN=$CODECOV_TOKEN codecov
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: build
+  on:
+    branch: main
