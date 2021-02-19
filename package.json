@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "sass": "^1.30.0",
+    "ts-jest": "^26.5.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4"
@@ -33,9 +34,12 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "coverage": "react-scripts test --env=jsdom --coverage",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info"
   },
   "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
     "collectCoverageFrom": [
       "src/**/*.(ts|tsx)",
       "!src/index.tsx",
@@ -49,11 +53,7 @@
         "lines": 85,
         "statements": 85
       }
-    },
-    "coverageReporters": [
-      "html",
-      "text"
-    ]
+    }
   },
   "eslintConfig": {
     "extends": [
