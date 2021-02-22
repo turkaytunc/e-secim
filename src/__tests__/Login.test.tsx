@@ -77,13 +77,20 @@ describe('<Login />', () => {
     it('should test succesful login operation', async () => {
       const { getByTestId } = render(<Login />);
 
-      (window.fetch as jest.Mock).mockResolvedValue({ status: 200, data: [{}] });
+      (window.fetch as jest.Mock).mockResolvedValue({
+        status: 200,
+        json: () => Promise.resolve({ data: [{}] }),
+      });
 
       fireEvent.change(getByTestId('login-tc-input'), { target: { value: '12345678999' } });
       fireEvent.change(getByTestId('login-password-input'), { target: { value: '123456' } });
       fireEvent.click(getByTestId('login-submit-button'));
 
-      await act(() => Promise.resolve());
+      const setFunctionToSleep = async (ms: number): Promise<void> => {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      };
+      await act(() => setFunctionToSleep(1000));
+      expect(getByTestId('login-submit-button')).toBeTruthy();
     });
   });
 });

@@ -2,12 +2,7 @@ import React from 'react';
 import { Bar } from '@reactchartjs/react-chart.js';
 import './vertical-bar.scss';
 
-export interface IProps {
-  voteData: number[];
-  candidates: string[];
-}
-
-const VerticalBar = ({ voteData, candidates }: IProps) => {
+const VerticalBar = ({ voteData, candidates }: { voteData: number[]; candidates: string[] }) => {
   const data = {
     labels: candidates,
     datasets: [
