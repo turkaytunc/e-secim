@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/e-secim/static/css/main.ddd5a01f.chunk.css",
+    "main.js": "/e-secim/static/js/main.8e7895b9.chunk.js",
+    "main.js.map": "/e-secim/static/js/main.8e7895b9.chunk.js.map",
+    "runtime-main.js": "/e-secim/static/js/runtime-main.a927659c.js",
+    "runtime-main.js.map": "/e-secim/static/js/runtime-main.a927659c.js.map",
+    "static/js/2.7b50eeae.chunk.js": "/e-secim/static/js/2.7b50eeae.chunk.js",
+    "static/js/2.7b50eeae.chunk.js.map": "/e-secim/static/js/2.7b50eeae.chunk.js.map",
+    "index.html": "/e-secim/index.html",
+    "static/css/main.ddd5a01f.chunk.css.map": "/e-secim/static/css/main.ddd5a01f.chunk.css.map",
+    "static/js/2.7b50eeae.chunk.js.LICENSE.txt": "/e-secim/static/js/2.7b50eeae.chunk.js.LICENSE.txt",
+    "static/media/erturk.408fb7a2.jpg": "/e-secim/static/media/erturk.408fb7a2.jpg",
+    "static/media/karacali.9dfddec0.jpg": "/e-secim/static/media/karacali.9dfddec0.jpg",
+    "static/media/ph.da7e4202.jpg": "/e-secim/static/media/ph.da7e4202.jpg",
+    "static/media/tunc.b539cd90.jpg": "/e-secim/static/media/tunc.b539cd90.jpg",
+    "static/media/vote.de516f35.jpg": "/e-secim/static/media/vote.de516f35.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a927659c.js",
+    "static/js/2.7b50eeae.chunk.js",
+    "static/css/main.ddd5a01f.chunk.css",
+    "static/js/main.8e7895b9.chunk.js"
+  ]
+}
